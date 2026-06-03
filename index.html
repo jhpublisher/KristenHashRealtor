@@ -1,45 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kristen Hash | Realtor | Sotera Living</title>
-  <style>
-    body { font-family: Georgia, serif; margin: 0; padding: 0; background-color: #f9f6f1; color: #333; }
-    header { background-color: #2c3e50; color: #fff; padding: 40px 20px; text-align: center; }
-    header h1 { margin: 0 0 8px; font-size: 2.4em; }
-    header p { margin: 4px 0; font-size: 1.1em; color: #ccc; }
-    header a { color: #f0c040; text-decoration: none; }
-    main { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-    h2 { color: #2c3e50; border-bottom: 2px solid #ccc; padding-bottom: 8px; }
-    .listings-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; margin-top: 24px; }
-    .listing-card { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 20px; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
-    .listing-card h3 { margin: 0 0 10px; font-size: 1.1em; color: #2c3e50; }
-    .listing-card a { display: inline-block; margin-top: 10px; padding: 8px 18px; background-color: #2c3e50; color: #fff; border-radius: 4px; text-decoration: none; font-size: 0.9em; }
-    footer { text-align: center; padding: 30px 20px; background-color: #2c3e50; color: #aaa; margin-top: 60px; font-size: 0.9em; }
-    footer a { color: #f0c040; text-decoration: none; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kristen Hash | Realtor | Sotera Living</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --gold: #B8965A;
+    --gold-light: #D4B07A;
+    --cream: #F5F0E8;
+    --text: #F0EAD8;
+    --muted: rgba(240,234,216,0.5);
+    --bg: #0E0C0A;
+    --panel: #15110D;
+    --line: rgba(184,150,90,0.25);
+  }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* subtle vignette/atmosphere */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(184,150,90,0.07) 0%, transparent 55%);
+    pointer-events: none; z-index: 0;
+  }
+
+  .wrap { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 0 28px; }
+
+  /* labels */
+  .label {
+    font-size: 0.7rem; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--gold); font-weight: 400;
+  }
+  .divider { width: 1px; height: 56px; background: var(--gold); margin: 0 auto; }
+
+  /* fade-up load animation */
+  .fade { opacity: 0; transform: translateY(18px); animation: fadeUp 1s ease forwards; }
+  .d1 { animation-delay: 0.2s; } .d2 { animation-delay: 0.45s; }
+  .d3 { animation-delay: 0.7s; } .d4 { animation-delay: 0.95s; } .d5 { animation-delay: 1.2s; }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+  /* HERO */
+  header { text-align: center; padding: 84px 0 64px; }
+  .portrait {
+    width: 150px; height: 150px; border-radius: 50%;
+    object-fit: cover; margin: 0 auto 30px; display: block;
+    border: 1px solid var(--gold);
+    box-shadow: 0 0 0 8px rgba(184,150,90,0.06), 0 18px 50px rgba(0,0,0,0.6);
+  }
+  header h1 {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: clamp(2.6rem, 7vw, 4.4rem); letter-spacing: 0.06em;
+    color: var(--cream); line-height: 1.05; margin: 18px 0 6px;
+  }
+  .area { font-size: 0.95rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+  .bio {
+    max-width: 560px; margin: 26px auto 0; color: rgba(240,234,216,0.78);
+    font-size: 1.02rem;
+  }
+  .contact {
+    margin-top: 30px; display: flex; gap: 26px; justify-content: center;
+    flex-wrap: wrap; align-items: center;
+  }
+  .contact a {
+    color: var(--text); text-decoration: none; font-size: 0.92rem;
+    letter-spacing: 0.12em; padding-bottom: 3px; border-bottom: 1px solid transparent;
+    transition: color 0.3s, border-color 0.3s;
+  }
+  .contact a:hover { color: var(--gold-light); border-color: var(--gold); }
+  .contact .dot { color: var(--gold); font-size: 0.7rem; }
+
+  /* LISTINGS */
+  .listings { padding: 30px 0 70px; }
+  .section-head { text-align: center; margin-bottom: 44px; }
+  .section-head .divider { margin-bottom: 20px; }
+
+  .feature {
+    position: relative; background: var(--panel);
+    border: 1px solid var(--line); border-radius: 4px; overflow: hidden;
+  }
+
+  /* photo-led media area */
+  .feat-media { position: relative; line-height: 0; }
+  .feat-media img { width: 100%; height: auto; display: block; }
+  .feat-media::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 42%;
+    background: linear-gradient(to top, var(--panel) 6%, rgba(21,17,13,0.0) 100%);
+    pointer-events: none;
+  }
+
+  .feat-body { position: relative; z-index: 1; margin-top: -42px; padding: 0 40px 60px; text-align: center; }
+  .feat-status {
+    font-size: 0.62rem; letter-spacing: 0.38em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 22px;
+  }
+  .feat-address {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: clamp(2rem, 5vw, 3.4rem); letter-spacing: 0.08em; color: var(--cream);
+  }
+  .feat-town {
+    font-size: 0.78rem; letter-spacing: 0.34em; text-transform: uppercase;
+    color: var(--gold-light); margin-top: 14px;
+  }
+  .feat-specs {
+    font-size: 0.74rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted); margin-top: 12px;
+  }
+  .feat-specs span { color: var(--gold); margin: 0 10px; }
+  .feat-price {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 1.35rem; color: var(--gold-light); margin-top: 26px; letter-spacing: 0.03em;
+  }
+  .btn {
+    display: inline-block; margin-top: 34px;
+    font-size: 0.72rem; letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--gold); border: 1px solid var(--line);
+    padding: 0.95rem 2.8rem; text-decoration: none; background: transparent;
+    transition: background 0.35s, border-color 0.35s, color 0.35s;
+  }
+  .btn:hover { background: rgba(184,150,90,0.1); border-color: var(--gold); color: var(--gold-light); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--line); text-align: center;
+    padding: 40px 0 50px; color: var(--muted); font-size: 0.82rem; letter-spacing: 0.1em;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+  footer a:hover { color: var(--gold-light); }
+  footer .sep { margin: 0 10px; opacity: 0.5; }
+
+  @media (max-width: 560px) {
+    .feat-body { padding: 0 24px 48px; margin-top: -28px; }
+    .contact { gap: 16px; }
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Kristen Hash</h1>
-    <p>Realtor &mdash; Sotera Living | Winter Park, FL</p>
-    <p>Contact: <a href="mailto:kristen@soteraliving.com">kristen@soteraliving.com</a> | <a href="tel:4252210124">425-221-0124</a></p>
-  </header>
-  <main>
-    <h2>Current Listings</h2>
-    <p>Browse available properties in the Winter Park and greater Orlando area below.</p>
-    <div class="listings-grid">
-      <div class="listing-card">
-        <h3>1122 Dingens Street</h3>
-        <p>Winter Park, FL</p>
-        <a href="home_tour_1122_Dingens.html">View Listing</a>
+  <div class="wrap">
+
+    <header>
+      <!-- Drop Kristen's photo into the repo as kristen-hash.jpg -->
+      <img src="kristen-hash.jpg" alt="Kristen Hash" class="portrait fade d1">
+      <div class="label fade d1">Realtor &middot; Sotera Living</div>
+      <h1 class="fade d2">Kristen Hash</h1>
+      <div class="area fade d2">Winter Park &amp; Greater Orlando, Florida</div>
+      <!-- EDIT THIS BIO LINE -->
+      <p class="bio fade d3">Helping buyers and sellers navigate the Central Florida market with care, candor, and an eye for detail.</p>
+      <div class="contact fade d3">
+        <a href="mailto:kristen@soteraliving.com">kristen@soteraliving.com</a>
+        <span class="dot">&#9670;</span>
+        <a href="tel:4252210124">425&middot;221&middot;0124</a>
       </div>
-    </div>
-  </main>
-  <footer>
-    <p>&copy; 2026 Kristen Hash &mdash; <a href="https://soteraliving.com">Sotera Living</a> | Winter Park, FL</p>
-    <p><a href="mailto:kristen@soteraliving.com">kristen@soteraliving.com</a></p>
-  </footer>
+    </header>
+
+    <section class="listings">
+      <div class="section-head fade d4">
+        <div class="divider"></div>
+        <div class="label">Current Listings</div>
+      </div>
+
+      <div class="feature fade d5">
+        <div class="feat-media">
+          <!-- Add the render to the repo as 1122-dingens-front.jpg -->
+          <img src="1122-dingens-front.jpg" alt="1122 Dingens Ave, Gotha FL — front elevation">
+        </div>
+        <div class="feat-body">
+          <div class="feat-status">New Construction</div>
+          <div class="feat-address">1122 Dingens Ave</div>
+          <div class="feat-town">Gotha, Florida 34734</div>
+          <div class="feat-specs">5 Bedrooms <span>&middot;</span> 4.5 Bathrooms <span>&middot;</span> 3,610 Sq Ft</div>
+          <div class="feat-price">Contact for Pricing</div>
+          <!-- Links to the listing detail page (page 2, built next).
+               Temporarily point this at the slideshow if you want a live link now. -->
+          <a class="btn" href="home_detail_1122_Dingens.html">View Listing</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      &copy; 2026 Kristen Hash
+      <span class="sep">|</span>
+      <a href="https://soteraliving.com">Sotera Living</a>
+      <span class="sep">|</span>
+      <a href="mailto:kristen@soteraliving.com">kristen@soteraliving.com</a>
+    </footer>
+
+  </div>
 </body>
 </html>
