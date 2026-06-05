@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2924 Cove Trail | Winter Park, FL | Kristen Hash</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --gold: #B8965A;
+  --gold-light: #D4B07A;
+  --cream: #F5F0E8;
+  --text: #F0EAD8;
+  --muted: rgba(240,234,216,0.5);
+  --bg: #0E0C0A;
+  --panel: #15110D;
+  --line: rgba(184,150,90,0.25);
+}
+body {
+  background: var(--bg); color: var(--text);
+  font-family: 'Jost', sans-serif; font-weight: 300; line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ''; position: fixed; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(184,150,90,0.07) 0%, transparent 55%);
+  pointer-events: none; z-index: 0;
+}
+a { color: inherit; }
+.wrap { position: relative; z-index: 1; max-width: 960px; margin: 0 auto; padding: 0 28px; }
+.topbar { border-bottom: 1px solid var(--line); }
+.topbar .wrap { display: flex; justify-content: space-between; align-items: center; padding: 22px 28px; }
+.brand { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; letter-spacing: 0.08em; color: var(--cream); text-decoration: none; }
+.back { font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); text-decoration: none; }
+.back:hover { color: var(--gold-light); }
+.label { font-size: 0.7rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); font-weight: 400; }
+.divider { width: 1px; height: 52px; background: var(--gold); margin: 0 auto; }
+.hero { text-align: center; padding: 60px 0 0; }
+.hero .status { font-size: 0.62rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); }
+.hero h1 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2.4rem, 6vw, 4rem); letter-spacing: 0.07em; color: var(--cream); margin: 16px 0 0; line-height: 1.05; }
+.hero .town { font-size: 0.8rem; letter-spacing: 0.34em; text-transform: uppercase; color: var(--gold-light); margin-top: 14px; }
+.hero .specs { font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-top: 12px; }
+.hero .specs span { color: var(--gold); margin: 0 10px; }
+.hero .tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.4rem; color: var(--gold-light); margin-top: 22px; }
+.hero-img { margin: 40px 0 0; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; line-height: 0; }
+.hero-img img { width: 100%; height: auto; display: block; }
+.cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 34px; }
+.btn { display: inline-block; font-size: 0.72rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--line); padding: 0.95rem 2.6rem; text-decoration: none; transition: background .35s, border-color .35s, color .35s; }
+.btn:hover { background: rgba(184,150,90,0.1); border-color: var(--gold); color: var(--gold-light); }
+.btn-solid { background: var(--gold); border-color: var(--gold); color: var(--bg); }
+.btn-solid:hover { background: var(--gold-light); border-color: var(--gold-light); color: var(--bg); }
+section { padding: 70px 0 0; }
+.sec-head { text-align: center; margin-bottom: 40px; }
+.sec-head .divider { margin-bottom: 18px; }
+.sec-head h2 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2.2rem; letter-spacing: 0.05em; color: var(--cream); margin-top: 6px; }
+.prose { max-width: 720px; margin: 0 auto; }
+.prose h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.5rem; letter-spacing: 0.04em; color: var(--gold-light); margin: 34px 0 10px; }
+.prose h3:first-child { margin-top: 0; }
+.prose p { color: rgba(240,234,216,0.82); margin-bottom: 6px; }
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.fact { background: var(--panel); padding: 26px 18px; text-align: center; }
+.fact .v { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--cream); line-height: 1; }
+.fact .k { font-size: 0.62rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted); margin-top: 10px; }
+.features { columns: 2; column-gap: 48px; max-width: 820px; margin: 0 auto; }
+.feat-group { break-inside: avoid; margin-bottom: 34px; }
+.feat-group h4 { font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); border-bottom: 1px solid var(--line); padding-bottom: 10px; margin-bottom: 14px; }
+.feat-group ul { list-style: none; }
+.feat-group li { position: relative; padding-left: 18px; margin-bottom: 8px; font-size: 0.95rem; color: rgba(240,234,216,0.82); }
+.feat-group li::before { content: '\2666'; position: absolute; left: 0; color: var(--gold); font-size: 0.6rem; top: 0.35em; }
+.closing { text-align: center; padding: 80px 0 0; }
+.closing h2 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2rem; color: var(--cream); letter-spacing: 0.04em; }
+.closing p { color: var(--muted); margin-top: 10px; letter-spacing: 0.08em; font-size: 0.95rem; }
+footer { border-top: 1px solid var(--line); text-align: center; padding: 40px 0 50px; margin-top: 70px; color: var(--muted); font-size: 0.82rem; letter-spacing: 0.1em; }
+footer a { color: var(--gold); text-decoration: none; }
+footer a:hover { color: var(--gold-light); }
+footer .sep { margin: 0 10px; opacity: 0.5; }
+@media (max-width: 640px) {
+  .features { columns: 1; }
+  .facts { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">Kristen Hash</a>
+    <a class="back" href="index.html">&larr; All Listings</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="status"><!-- e.g. For Sale / New Listing / Coming Soon --></div>
+    <h1>2924 Cove Trail</h1>
+    <div class="town">Winter Park, Florida</div>
+    <div class="specs"><!-- # --> Bedrooms <span>&middot;</span> <!-- # --> Bathrooms <span>&middot;</span> <!-- # --> Sq Ft</div>
+    <div class="tagline"><!-- Tagline --></div>
+    <div class="hero-img">
+      <img src="2924-cove-trail-front.jpg" alt="2924 Cove Trail, Winter Park FL — front elevation">
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-solid" href="home_tour_2924_CoveTrail.html">Home Tour</a>
+      <a class="btn" href="mailto:kristen@soteraliving.com">Inquire</a>
+    </div>
+  </div>
+
+  <!-- DESCRIPTION -->
+  <section>
+    <div class="sec-head"><div class="divider"></div><div class="label">About the Home</div></div>
+    <div class="prose">
+      <h3><!-- Section Heading --></h3>
+      <p><!-- Description paragraph --></p>
+    </div>
+  </section>
+
+  <!-- QUICK FACTS -->
+  <section>
+    <div class="sec-head"><div class="divider"></div><div class="label">At a Glance</div></div>
+    <div class="facts">
+      <div class="fact"><div class="v"><!-- # --></div><div class="k">Bedrooms</div></div>
+      <div class="fact"><div class="v"><!-- # --></div><div class="k">Bathrooms</div></div>
+      <div class="fact"><div class="v"><!-- # --></div><div class="k">Sq Ft Living</div></div>
+      <div class="fact"><div class="v"><!-- # --></div><div class="k">Stories</div></div>
+      <div class="fact"><div class="v"><!-- # --></div><div class="k">Acre Lot</div></div>
+      <div class="fact"><div class="v"><!-- # --></div><div class="k">Car Garage</div></div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section>
+    <div class="sec-head"><div class="divider"></div><div class="label">Features &amp; Finishes</div></div>
+    <div class="features">
+
+      <div class="feat-group">
+        <h4>Interior</h4>
+        <ul>
+          <li><!-- Feature --></li>
+        </ul>
+      </div>
+
+      <div class="feat-group">
+        <h4>Kitchen</h4>
+        <ul>
+          <li><!-- Feature --></li>
+        </ul>
+      </div>
+
+      <div class="feat-group">
+        <h4>Primary Suite</h4>
+        <ul>
+          <li><!-- Feature --></li>
+        </ul>
+      </div>
+
+      <div class="feat-group">
+        <h4>Outdoor Living</h4>
+        <ul>
+          <li><!-- Feature --></li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <div class="closing">
+    <h2>Schedule a Private Showing</h2>
+    <p>Contact for pricing &amp; availability</p>
+    <div class="cta-row">
+      <a class="btn btn-solid" href="home_tour_2924_CoveTrail.html">Home Tour</a>
+      <a class="btn" href="mailto:kristen@soteraliving.com">Inquire</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2026 Kristen Hash <span class="sep">|</span>
+    <a href="https://soteraliving.com">Sotera Living</a> <span class="sep">|</span>
+    <a href="mailto:kristen@soteraliving.com">kristen@soteraliving.com</a>
+  </footer>
+
+</div>
+</body>
+</html>
